@@ -237,9 +237,12 @@ dns:
   - "*.example"
   - "*.localdomain"
   default-nameserver:
-  - 127.0.0.1:5054
+  - 76.76.2.2
+  - 76.76.10.2
   nameserver:
-  - 127.0.0.1:5054
+  - 76.76.2.2
+  - 76.76.10.2
+  - tls://p2.freedns.controld.com:853
   fallback:
   - https://freedns.controld.com/p2
 ipv6: true

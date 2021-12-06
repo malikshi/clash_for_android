@@ -296,6 +296,12 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
     path: "./rule_reject.yaml"
     interval: 86400
+  rule_porn:
+    type: http
+    behavior: domain
+    url: https://rules.kr328.app/category-porn.yaml
+    path: "./rule_porn.yaml"
+    interval: 86400
   rule_lancidr:
     type: http
     behavior: ipcidr
@@ -405,6 +411,7 @@ rules:
 - PROCESS-NAME,privoxy.exe,DIRECT
 - RULE-SET,rule_BlockAds,REJECT
 - RULE-SET,rule_reject,REJECT
+- RULE-SET,rule_porn,REJECT
 - RULE-SET,rule_lancidr,DIRECT,no-resolve
 - RULE-SET,rule_Direct,DIRECT
 - RULE-SET,rule_Speedtest,Umum

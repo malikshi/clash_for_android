@@ -15,10 +15,6 @@
         - [Import Main.yaml](#import-mainyaml)
         - [Import Proxy Provider](#import-proxy-provider)
         - [Import Rule Provider](#import-rule-provider)
-      - [Overviews](#overviews)
-    - [Setting Yacd](#setting-yacd)
-      - [Proxies](#proxies)
-      - [Config](#config)
 
 # Clash For Android Config
 
@@ -47,8 +43,6 @@ Download zip master dan ekstrak file [**clash_for_android-main.zip**](https://co
 
 Video : [Download Config](https://youtu.be/lgyJ_ohdYgM)
 
-![download config](https://github.com/malikshi/clash_for_android/blob/main/assets/download%20cfa%20config.gif)
-
 ### Edit Files Proxy Provider
 
 
@@ -61,8 +55,6 @@ Fungsi dari masing masing proxy provider
 * trafficIndo.yaml dikhususkan untuk websites/layanan yang diharuskan untuk menggunakan lokasi Indonesia seperti netflix, disney+, marketplace online, dan VOD Streaming lainnya.
 
 Video : [Edit Proxy Provider](https://youtu.be/dANGCW91E1k)
-
-![Proxy Provider](https://drive.google.com/file/d/1KpVqSG40v7R_BLRX9ZRhZEUUVl9exCF4/view)
 
 #### Shadowsocks
 
@@ -267,7 +259,10 @@ Setelah selesai mengedit config main.yaml dan setiap file pada folder proxy_prov
 ##### Import Main.yaml
 
 Jika ada yang perlu diedit silahkan edit main.yaml kemudian import main.yaml.
-<img src="https://raw.githubusercontent.com/malikshi/open_clash/main/assets/main-yaml.jpg" border="0">
+
+Video:  [Import Main.yaml](https://youtu.be/ehopTWNQ_xs)
+
+![impormain](assets/import%20main%20yaml.gif)
 
 ##### Import Proxy Provider
 
@@ -276,24 +271,8 @@ Jika Semua file pada folder proxy_provider yang terdiri dari umum.yaml, trafficI
 
 ##### Import Rule Provider
 
-traffic direct/bypass sudah disikan ke rule_direct.yaml maka bisa langsung import semua files pada folder rule_provider pada **Upload File Type : Rule Provider File**.
-<img src="https://raw.githubusercontent.com/malikshi/open_clash/main/assets/rule-provider.jpg" border="0">
+traffic direct/bypass sudah disikan ke rule_direct.yaml. ada dua cara untuk import seluruh file pada folder rule_provider, pertama hanya import rule_direct.yaml dan saat klik icon save pada profile akan melakukan fetching seluruh rules jadi membutukan koneksi internet. Kedua import seluruh file secara manual.
 
-#### Overviews
+Video:  [Import Rule Provider](https://youtu.be/ehopTWNQ_xs)
 
-Pada Overviews kita bisa melihat sepintas status Openclash yang berjalan, status versi openclash terbaru dan menjalankan tools openclash yakni dengan klik `Enable Openclash` untuk start, klik `Disable Openclash` untuk stop.
-<img src="https://raw.githubusercontent.com/malikshi/open_clash/main/assets/overviews.jpg" border="0">
-
-### Setting Yacd
-
-Yacd adalah yet another clash dashboard, yakni dashboard clash yang dapat digunakan untuk mengatur proxy dan memantau services clash yang dijalankan oleh Openclash.
-
-#### Proxies
-
-Untuk pertama kali start openclash maka harus setting proxies `GLOBAL` ke traffic proxy-groups `Umum`.
-<img src="https://raw.githubusercontent.com/malikshi/open_clash/main/assets/yacd-config-2.jpg" border="0">
-
-#### Config
-
-Pada menu yacd > config untuk pertama kali menjalankan openclash maka perlu setting Mode ke `Rule` dan `Enable Allow LAN` serta bisa mengaktifkan log level untuk melakukan debugging/tracing traffic jika ada rule yang salah.
-<img src="https://raw.githubusercontent.com/malikshi/open_clash/main/assets/yacd-config.jpg" border="0">
+![importrule](assets/import%20rule%20provider.gif)

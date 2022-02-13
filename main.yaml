@@ -337,37 +337,37 @@ rule-providers:
     type: http
     behavior: classical
     path: "./rule_portgames.yaml"
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_portgames.yaml
+    url: https://raw.githubusercontent.com/malikshi/clash_for_android/main/rule_provider/rule_portgames.yaml
     interval: 86400
   rule_videoconferences:
     type: http
     behavior: classical
     path: "./rule_videoconferences.yaml"
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_videoconferences.yaml
+    url: https://raw.githubusercontent.com/malikshi/clash_for_android/main/rule_provider/rule_videoconferences.yaml
     interval: 86400
   rule_Indo:
     type: http
     behavior: classical
     path: "./rule_Indo.yaml"
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_Indo.yaml
+    url: https://raw.githubusercontent.com/malikshi/clash_for_android/main/rule_provider/rule_Indo.yaml
     interval: 86400
   rule_Sosmed:
     type: http
     behavior: classical
     path: "./rule_sosmed.yaml"
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_sosmed.yaml
+    url: https://raw.githubusercontent.com/malikshi/clash_for_android/main/rule_provider/rule_sosmed.yaml
     interval: 86400
   rule_Streaming:
     type: http
     behavior: classical
     path: "./rule_streaming.yaml"
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_streaming.yaml
+    url: https://raw.githubusercontent.com/malikshi/clash_for_android/main/rule_provider/rule_streaming.yaml
     interval: 86400
   rule_Gaming:
     type: http
     behavior: classical
     path: "./rule_gaming.yaml"
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_gaming.yaml
+    url: https://raw.githubusercontent.com/malikshi/clash_for_android/main/rule_provider/rule_gaming.yaml
     interval: 86400
   rule_Speedtest:
     type: http
@@ -402,7 +402,7 @@ rule-providers:
   rule_basicads:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_basicads.yaml
+    url: https://raw.githubusercontent.com/malikshi/clash_for_android/main/rule_provider/rule_basicads.yaml
     path: "./rule_basicads.yaml"
     interval: 86400
   rule_porn:
@@ -414,7 +414,7 @@ rule-providers:
   rule_nsfw:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_nsfw.yaml
+    url: https://raw.githubusercontent.com/malikshi/clash_for_android/main/rule_provider/rule_nsfw.yaml
     path: "./rule_nsfw.yaml"
     interval: 86400
   rule_lancidr:
@@ -486,7 +486,7 @@ rule-providers:
   rule_playstore:
     type: http
     behavior: domain
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_playstore.yaml
+    url: https://raw.githubusercontent.com/malikshi/clash_for_android/main/rule_provider/rule_playstore.yaml
     path: "./rule_playstore.yaml"
     interval: 86400
   rule_tiktok:

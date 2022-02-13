@@ -15,6 +15,7 @@
         - [Import Main.yaml](#import-mainyaml)
         - [Import Proxy Provider](#import-proxy-provider)
         - [Import Rule Provider](#import-rule-provider)
+        - [Start Clash For Android](#start-clash-for-android)
 
 # Clash For Android Config
 
@@ -266,13 +267,22 @@ Video:  [Import Main.yaml](https://youtu.be/ehopTWNQ_xs)
 
 ##### Import Proxy Provider
 
-Jika Semua file pada folder proxy_provider yang terdiri dari umum.yaml, trafficIndo.yaml, streaming.yaml, sosmed.yaml dan gaming.yaml sudah diisi dengan akun maka selanjutnya import file-file tersebut pada **Upload File Type : Proxy Provider File**.
-<img src="https://raw.githubusercontent.com/malikshi/open_clash/main/assets/proxy-provider.jpg" border="0">
+Jika Semua file pada folder proxy_provider yang terdiri dari umum.yaml, trafficIndo.yaml, streaming.yaml, sosmed.yaml dan gaming.yaml sudah diisi dengan akun maka selanjutnya import file-file tersebut pada Provider Files
+
+Video:  [Import Proxy Provider](https://youtu.be/pUdBvfzAjWo)
+
+![importproxy](assets/import%20proxy%20provider.gif)
 
 ##### Import Rule Provider
 
 traffic direct/bypass sudah disikan ke rule_direct.yaml. ada dua cara untuk import seluruh file pada folder rule_provider, pertama hanya import rule_direct.yaml dan saat klik icon save pada profile akan melakukan fetching seluruh rules jadi membutukan koneksi internet. Kedua import seluruh file secara manual.
 
-Video:  [Import Rule Provider](https://youtu.be/ehopTWNQ_xs)
+Video:  [Import Rule Provider](https://youtu.be/OPdKD2FSj-4)
 
 ![importrule](assets/import%20rule%20provider.gif)
+
+##### Start Clash For Android
+
+Semua langkah - langkah diatas sudah dijalankan maka tinggal start clash for android dengan memilih profile yang tadi dibuat dan tap START untuk memulai.
+
+Video:  [Start Clash For Android](https://youtu.be/WCpX68RbZl8)

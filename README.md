@@ -45,7 +45,8 @@ Antarmuka UI dari clash untuk Android. Kompatibel dengan Shadowsocks Shadowsocks
 
 Download zip master dan ekstrak file [**clash_for_android-main.zip**](https://codeload.github.com/malikshi/clash_for_android/zip/refs/heads/main)
 
-<iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/LgWX2sPZQsE/" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+![caption
+](https://youtu.be/lgyJ_ohdYgM)
 
 ### Edit Files Proxy Provider
 

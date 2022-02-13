@@ -60,6 +60,10 @@ Fungsi dari masing masing proxy provider
 * streaming.yaml digunakan untuk traffic streaming seperti youtube, twitch, anime.
 * trafficIndo.yaml dikhususkan untuk websites/layanan yang diharuskan untuk menggunakan lokasi Indonesia seperti netflix, disney+, marketplace online, dan VOD Streaming lainnya.
 
+Video : [Edit Proxy Provider](https://youtu.be/dANGCW91E1k)
+
+![Proxy Provider](https://drive.google.com/file/d/1KpVqSG40v7R_BLRX9ZRhZEUUVl9exCF4/view)
+
 #### Shadowsocks
 
 * Shadowsocks Original / tanpa plugin

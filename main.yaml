@@ -1,4 +1,3 @@
----
 proxy-providers:
   Gaming:
     type: file
@@ -6,39 +5,38 @@ proxy-providers:
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 123
+      interval: 300
   Sosmed:
     type: file
     path: "./sosmed.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 123
+      interval: 300
   Streaming:
     type: file
     path: "./streaming.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 123
+      interval: 300
   Umum:
     type: file
     path: "./umum.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 123
+      interval: 300
   trafficIndo:
     type: file
     path: "./trafficIndo.yaml"
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
-      interval: 123
+      interval: 300
 proxy-groups:
 - name: Gaming
   type: url-test
-  strategy: consistent-hashing
   disable-udp: false
   use:
   - Gaming
@@ -61,14 +59,15 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: '300'
 - name: trafficIndo
-  type: fallback
+  type: url-test
   disable-udp: false
   use:
   - trafficIndo
   url: http://www.gstatic.com/generate_204
   interval: '300'
 - name: Umum
-  type: fallback
+  type: load-balance
+  strategy: consistent-hashing
   disable-udp: false
   use:
   - Umum
@@ -84,71 +83,45 @@ allow-lan: true
 external-controller: 0.0.0.0:9090
 secret: '123456'
 bind-address: "*"
-external-ui: "/usr/share/openclash/dashboard"
+external-ui: "./"
 dns:
   enable: true
   ipv6: true
   enhanced-mode: fake-ip
   listen: 0.0.0.0:7874
-  fallback-filter:
-    geoip: false
-    ipcidr:
-    - 0.0.0.0/8
-    - 10.0.0.0/8
-    - 100.64.0.0/10
-    - 127.0.0.0/8
-    - 169.254.0.0/16
-    - 172.16.0.0/12
-    - 192.0.0.0/24
-    - 192.0.2.0/24
-    - 192.88.99.0/24
-    - 192.168.0.0/16
-    - 198.18.0.0/15
-    - 198.51.100.0/24
-    - 203.0.113.0/24
-    - 224.0.0.0/4
-    - 240.0.0.0/4
-    - 255.255.255.255/32
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
   - "*.lan"
-  - time.windows.com
-  - time.nist.gov
-  - time.apple.com
-  - time.asia.apple.com
-  - "*.ntp.org.cn"
-  - "*.openwrt.pool.ntp.org"
-  - time1.cloud.tencent.com
-  - time.ustc.edu.cn
-  - pool.ntp.org
-  - ntp.ubuntu.com
-  - ntp.aliyun.com
-  - ntp1.aliyun.com
-  - ntp2.aliyun.com
-  - ntp3.aliyun.com
-  - ntp4.aliyun.com
-  - ntp5.aliyun.com
-  - ntp6.aliyun.com
-  - ntp7.aliyun.com
-  - time1.aliyun.com
-  - time2.aliyun.com
-  - time3.aliyun.com
-  - time4.aliyun.com
-  - time5.aliyun.com
-  - time6.aliyun.com
-  - time7.aliyun.com
+  - "*.localdomain"
+  - "*.example"
+  - "*.invalid"
+  - "*.localhost"
+  - "*.test"
+  - "*.local"
+  - "*.home.arpa"
+  - time.*.com
+  - time.*.gov
+  - time.*.edu.cn
+  - time.*.apple.com
+  - time1.*.com
+  - time2.*.com
+  - time3.*.com
+  - time4.*.com
+  - time5.*.com
+  - time6.*.com
+  - time7.*.com
+  - ntp.*.com
+  - ntp1.*.com
+  - ntp2.*.com
+  - ntp3.*.com
+  - ntp4.*.com
+  - ntp5.*.com
+  - ntp6.*.com
+  - ntp7.*.com
   - "*.time.edu.cn"
-  - time1.apple.com
-  - time2.apple.com
-  - time3.apple.com
-  - time4.apple.com
-  - time5.apple.com
-  - time6.apple.com
-  - time7.apple.com
-  - time1.google.com
-  - time2.google.com
-  - time3.google.com
-  - time4.google.com
+  - "*.ntp.org.cn"
+  - "+.pool.ntp.org"
+  - time1.cloud.tencent.com
   - music.163.com
   - "*.music.163.com"
   - "*.126.net"
@@ -171,101 +144,231 @@ dns:
   - "*.xiami.com"
   - "*.music.migu.cn"
   - music.migu.cn
-  - "*.msftconnecttest.com"
-  - "*.msftncsi.com"
+  - "+.msftconnecttest.com"
+  - "+.msftncsi.com"
+  - msftconnecttest.com
+  - msftncsi.com
   - localhost.ptlogin2.qq.com
+  - localhost.sec.qq.com
   - "+.srv.nintendo.net"
   - "+.stun.playstation.net"
   - xbox.*.microsoft.com
-  - "+.xboxlive.com"
+  - xnotify.xboxlive.com
+  - "+.battlenet.com.cn"
+  - "+.wotgame.cn"
+  - "+.wggames.cn"
+  - "+.wowsgame.cn"
+  - "+.wargaming.net"
   - proxy.golang.org
   - stun.*.*
   - stun.*.*.*
+  - "+.stun.*.*"
+  - "+.stun.*.*.*"
+  - "+.stun.*.*.*.*"
   - heartbeat.belkin.com
   - "*.linksys.com"
   - "*.linksyssmartwifi.com"
-  - "+.battlenet.com.cn"
-  - "+.wargaming.net"
-  - "+.wowsgame.cn"
-  - "+.wggames.cn"
-  - "+.wotgame.cn"
+  - "*.router.asus.com"
+  - mesu.apple.com
+  - swscan.apple.com
+  - swquery.apple.com
+  - swdownload.apple.com
+  - swcdn.apple.com
+  - swdist.apple.com
+  - lens.l.google.com
+  - stun.l.google.com
   - "+.nflxvideo.net"
   - "*.square-enix.com"
   - "*.finalfantasyxiv.com"
   - "*.ffxiv.com"
-  - stun.l.google.com
-  - lens.l.google.com
-  - swdist.apple.com
-  - swcdn.apple.com
-  - swdownload.apple.com
-  - swquery.apple.com
-  - swscan.apple.com
-  - mesu.apple.com
-  - "*.router.asus.com"
-  - "+.stun.*.*.*.*"
-  - "+.stun.*.*.*"
-  - "+.stun.*.*"
-  - xnotify.xboxlive.com
-  - localhost.sec.qq.com
-  - msftncsi.com
-  - msftconnecttest.com
-  - "+.pool.ntp.org"
-  - ntp7.*.com
-  - ntp6.*.com
-  - ntp5.*.com
-  - ntp4.*.com
-  - ntp3.*.com
-  - ntp2.*.com
-  - ntp1.*.com
-  - ntp.*.com
-  - time7.*.com
-  - time6.*.com
-  - time5.*.com
-  - time4.*.com
-  - time3.*.com
-  - time2.*.com
-  - time1.*.com
-  - time.*.apple.com
-  - time.*.edu.cn
-  - time.*.gov
-  - time.*.com
-  - "*.home.arpa"
-  - "*.local"
-  - "*.test"
-  - "*.localhost"
-  - "*.invalid"
-  - "*.example"
-  - "*.localdomain"
+  - "*.mcdn.bilivideo.cn"
+  - "+.media.dssott.com"
   default-nameserver:
-  - 76.76.2.2
-  - 76.76.10.2
+  - 8.8.8.8 #google
+  - 8.8.4.4 #google
+  - 1.1.1.1 #cloudflare
+  - 1.0.0.1 #cloudflare
+  - 9.9.9.9 #quaddns
+  - 9.9.9.11 #quaddns
+  - 192.168.170.28 #Tsel
+  - 192.168.178.28 #Tsel
+  - 192.168.130.28 #Tsel
+  - 112.215.220.254 #Axis
+  - 112.215.219.254 #Axis
+  - 140.213.82.253 #Axis
+  - 140.213.82.254 #Axis
+  - 112.215.203.248 #Axis
+  - 112.215.203.254 #Axis
+  - 112.215.37.182 #XL
+  - 112.215.37.183 #XL
+  fallback-filter:
+    geoip: true
+    geoip-code: ID
+    ipcidr:
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    - 255.255.255.255/32
+    domain:
+    - "+.google.com"
+    - "+.facebook.com"
+    - "+.youtube.com"
+    - "+.githubusercontent.com"
+    - "+.googlevideo.com"
   nameserver:
-  - 76.76.2.2
-  - 76.76.10.2
-  - tls://p2.freedns.controld.com:853
+  - 8.8.8.8 #google
+  - 8.8.4.4 #google
+  - 1.1.1.1 #cloudflare
+  - 1.0.0.1 #cloudflare
+  - 9.9.9.9 #quaddns
+  - 9.9.9.11 #quaddns
+  - 192.168.170.28 #Tsel
+  - 192.168.178.28 #Tsel
+  - 192.168.130.28 #Tsel
+  - 112.215.220.254 #Axis
+  - 112.215.219.254 #Axis
+  - 140.213.82.253 #Axis
+  - 140.213.82.254 #Axis
+  - 112.215.203.248 #Axis
+  - 112.215.203.254 #Axis
+  - 112.215.37.182 #XL
+  - 112.215.37.183 #XL
   fallback:
-  - https://freedns.controld.com/p2
-ipv6: true
+  - 8.8.8.8
+  - 1.1.1.1
+  - 9.9.9.9
 profile:
   store-selected: true
   store-fakeip: true
+  store-fake-ip: true
+rules:
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+- PROCESS-NAME,v2ray,DIRECT
+- PROCESS-NAME,xray,DIRECT
+- PROCESS-NAME,naive,DIRECT
+- PROCESS-NAME,trojan,DIRECT
+- PROCESS-NAME,trojan-go,DIRECT
+- PROCESS-NAME,ss-local,DIRECT
+- PROCESS-NAME,privoxy,DIRECT
+- PROCESS-NAME,leaf,DIRECT
+- PROCESS-NAME,v2ray.exe,DIRECT
+- PROCESS-NAME,xray.exe,DIRECT
+- PROCESS-NAME,naive.exe,DIRECT
+- PROCESS-NAME,trojan.exe,DIRECT
+- PROCESS-NAME,trojan-go.exe,DIRECT
+- PROCESS-NAME,ss-local.exe,DIRECT
+- PROCESS-NAME,privoxy.exe,DIRECT
+- DST-PORT,22,DIRECT,no-resolve
+- RULE-SET,rule_BlockAds,REJECT
+- RULE-SET,rule_reject,REJECT
+- RULE-SET,rule_basicads,REJECT
+- RULE-SET,rule_privacy,REJECT
+- RULE-SET,rule_porn,REJECT
+- RULE-SET,rule_nsfw,REJECT
+- RULE-SET,rule_lancidr,DIRECT,no-resolve
+- RULE-SET,rule_Direct,DIRECT,no-resolve
+- RULE-SET,rule_Speedtest,Umum
+- RULE-SET,rule_Streaming,Streaming
+- RULE-SET,rule_disneyplus,trafficIndo
+- RULE-SET,rule_hbo,Streaming
+- RULE-SET,rule_iqiyi,Streaming
+- RULE-SET,rule_netflix,trafficIndo
+- RULE-SET,rule_primevideo,Streaming
+- RULE-SET,rule_twitch,Streaming
+- RULE-SET,rule_Youtube,Streaming
+- RULE-SET,rule_Sosmed,Sosmed
+- RULE-SET,rule_line,Sosmed
+- RULE-SET,rule_metaverse,Sosmed
+- RULE-SET,rule_tiktok,Sosmed
+- RULE-SET,rule_twitter,Sosmed
+- RULE-SET,rule_telegram,Sosmed
+- RULE-SET,rule_telegramcidr,Sosmed
+- RULE-SET,rule_Indo,trafficIndo
+- RULE-SET,rule_Gaming,Gaming
+- RULE-SET,rule_discord,Gaming
+- RULE-SET,rule_games,Gaming
+- RULE-SET,rule_portgames,Gaming
+- RULE-SET,rule_videoconferences,Streaming
+- RULE-SET,rule_playstore,Umum
+- DST-PORT,21,Umum
+- DST-PORT,23,Umum
+- DST-PORT,25,Umum
+- DST-PORT,80,Umum
+- DST-PORT,81,Umum
+- DST-PORT,143,Umum
+- DST-PORT,443,Umum
+- DST-PORT,465,Umum
+- DST-PORT,587,Umum
+- DST-PORT,993,Umum
+- DST-PORT,995,Umum
+- DST-PORT,8000,Umum
+- DST-PORT,8008,Umum
+- DST-PORT,8080,Umum
+- DST-PORT,8081,Umum
+- DST-PORT,8090,Umum
+- DST-PORT,8443,Umum
+- DST-PORT,8888,Umum
+- MATCH,Umum
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+  - tcp://8.8.8.8:53
+  - tcp://8.8.4.4:53
+tproxy-port: 7895
 rule-providers:
-  rule_portgames:
+  rule_Direct:
     type: file
+    behavior: classical
+    path: "./rule_direct.yaml"
+  rule_portgames:
+    type: http
     behavior: classical
     path: "./rule_portgames.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_portgames.yaml
+    interval: 86400
   rule_videoconferences:
-    type: file
+    type: http
     behavior: classical
     path: "./rule_videoconferences.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_videoconferences.yaml
+    interval: 86400
   rule_Indo:
-    type: file
+    type: http
     behavior: classical
     path: "./rule_Indo.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_Indo.yaml
+    interval: 86400
   rule_Sosmed:
-    type: file
+    type: http
     behavior: classical
     path: "./rule_sosmed.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_sosmed.yaml
+    interval: 86400
+  rule_Streaming:
+    type: http
+    behavior: classical
+    path: "./rule_streaming.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_streaming.yaml
+    interval: 86400
+  rule_Gaming:
+    type: http
+    behavior: classical
+    path: "./rule_gaming.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_gaming.yaml
+    interval: 86400
   rule_Speedtest:
     type: http
     behavior: domain
@@ -278,18 +381,6 @@ rule-providers:
     url: https://rules.kr328.app/discord.yaml
     path: "./rule_discord.yaml"
     interval: 86400
-  rule_Streaming:
-    type: file
-    behavior: classical
-    path: "./rule_streaming.yaml"
-  rule_Gaming:
-    type: file
-    behavior: classical
-    path: "./rule_gaming.yaml"
-  rule_Direct:
-    type: file
-    behavior: classical
-    path: "./rule_direct.yaml"
   rule_BlockAds:
     type: http
     behavior: classical
@@ -302,11 +393,29 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
     path: "./rule_reject.yaml"
     interval: 86400
+  rule_privacy:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy_Classical.yaml
+    path: "./rule_privacy.yaml"
+    interval: 86400
+  rule_basicads:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_basicads.yaml
+    path: "./rule_basicads.yaml"
+    interval: 86400
   rule_porn:
     type: http
     behavior: domain
     url: https://rules.kr328.app/category-porn.yaml
     path: "./rule_porn.yaml"
+    interval: 86400
+  rule_nsfw:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_nsfw.yaml
+    path: "./rule_nsfw.yaml"
     interval: 86400
   rule_lancidr:
     type: http
@@ -374,6 +483,12 @@ rule-providers:
     url: https://rules.kr328.app/primevideo.yaml
     path: "./rule_primevideo.yaml"
     interval: 86400
+  rule_playstore:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_playstore.yaml
+    path: "./rule_playstore.yaml"
+    interval: 86400
   rule_tiktok:
     type: http
     behavior: domain
@@ -398,74 +513,4 @@ rule-providers:
     url: https://rules.kr328.app/youtube.yaml
     path: "./rule_Youtube.yaml"
     interval: 86400
-rules:
-- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
-- PROCESS-NAME,v2ray,DIRECT
-- PROCESS-NAME,xray,DIRECT
-- PROCESS-NAME,naive,DIRECT
-- PROCESS-NAME,trojan,DIRECT
-- PROCESS-NAME,trojan-go,DIRECT
-- PROCESS-NAME,ss-local,DIRECT
-- PROCESS-NAME,privoxy,DIRECT
-- PROCESS-NAME,leaf,DIRECT
-- PROCESS-NAME,v2ray.exe,DIRECT
-- PROCESS-NAME,xray.exe,DIRECT
-- PROCESS-NAME,naive.exe,DIRECT
-- PROCESS-NAME,trojan.exe,DIRECT
-- PROCESS-NAME,trojan-go.exe,DIRECT
-- PROCESS-NAME,ss-local.exe,DIRECT
-- PROCESS-NAME,privoxy.exe,DIRECT
-- RULE-SET,rule_BlockAds,REJECT
-- RULE-SET,rule_reject,REJECT
-- RULE-SET,rule_porn,REJECT
-- RULE-SET,rule_lancidr,DIRECT,no-resolve
-- RULE-SET,rule_Direct,DIRECT
-- RULE-SET,rule_Speedtest,Umum
-- RULE-SET,rule_Streaming,Streaming
-- RULE-SET,rule_disneyplus,Streaming
-- RULE-SET,rule_hbo,Streaming
-- RULE-SET,rule_iqiyi,Streaming
-- RULE-SET,rule_netflix,Streaming
-- RULE-SET,rule_primevideo,Streaming
-- RULE-SET,rule_twitch,Streaming
-- RULE-SET,rule_Youtube,Streaming
-- RULE-SET,rule_Sosmed,Sosmed
-- RULE-SET,rule_line,Sosmed
-- RULE-SET,rule_metaverse,Sosmed
-- RULE-SET,rule_tiktok,Sosmed
-- RULE-SET,rule_twitter,Sosmed
-- RULE-SET,rule_telegram,Sosmed
-- RULE-SET,rule_telegramcidr,Sosmed
-- RULE-SET,rule_Gaming,Gaming
-- RULE-SET,rule_discord,Gaming
-- RULE-SET,rule_games,Gaming
-- RULE-SET,rule_portgames,Gaming
-- RULE-SET,rule_videoconferences,Streaming
-- RULE-SET,rule_Indo,trafficIndo
-- DST-PORT,21,GLOBAL
-- DST-PORT,22,GLOBAL
-- DST-PORT,23,GLOBAL
-- DST-PORT,25,GLOBAL
-- DST-PORT,80,GLOBAL
-- DST-PORT,81,GLOBAL
-- DST-PORT,143,GLOBAL
-- DST-PORT,443,GLOBAL
-- DST-PORT,465,GLOBAL
-- DST-PORT,587,GLOBAL
-- DST-PORT,993,GLOBAL
-- DST-PORT,995,GLOBAL
-- DST-PORT,8000,GLOBAL
-- DST-PORT,8008,GLOBAL
-- DST-PORT,8080,GLOBAL
-- DST-PORT,8081,GLOBAL
-- DST-PORT,8090,GLOBAL
-- DST-PORT,8443,GLOBAL
-- DST-PORT,8888,GLOBAL
-- MATCH,GLOBAL
-tun:
-  enable: true
-  stack: system
-  dns-hijack:
-  - tcp://8.8.8.8:53
-  - tcp://8.8.4.4:53
-tproxy-port: 7895
+ipv6: true

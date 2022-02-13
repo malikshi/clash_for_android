@@ -258,7 +258,7 @@ Setelah selesai mengedit config main.yaml dan setiap file pada folder proxy_prov
 
 ##### Import Main.yaml
 
-Setelah melakukan pengeditan main.yaml maka kita import main.yaml via Manage Config. Dan khusus main.yaml jangan import/edit melalui winscp/sftp.
+Jika ada yang perlu diedit silahkan edit main.yaml kemudian import main.yaml.
 <img src="https://raw.githubusercontent.com/malikshi/open_clash/main/assets/main-yaml.jpg" border="0">
 
 ##### Import Proxy Provider

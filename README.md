@@ -2,20 +2,20 @@
 
 - [Clash For Android Config](#clash-for-android-config)
 - [Features](#features)
-  - [Clash for Android](#clash-for-android)
-    - [Download Config](#download-config)
-    - [Edit Files Proxy Provider](#edit-files-proxy-provider)
-      - [Shadowsocks](#shadowsocks)
-      - [Vmess](#vmess)
-      - [Snell](#snell)
-      - [Trojan](#trojan)
-    - [Edit Files Rule Provider](#edit-files-rule-provider)
-      - [Rule Direct/Bypassed Connection](#rule-directbypassed-connection)
-    - [Setting Clash For Android](#setting-clash-for-android)
-        - [Import Main.yaml](#import-mainyaml)
-        - [Import Proxy Provider](#import-proxy-provider)
-        - [Import Rule Provider](#import-rule-provider)
-        - [Start Clash For Android](#start-clash-for-android)
+- [Clash for Android](#clash-for-android)
+  - [Download Config](#download-config)
+  - [Edit Files Proxy Provider](#edit-files-proxy-provider)
+    - [Shadowsocks](#shadowsocks)
+    - [Vmess](#vmess)
+    - [Snell](#snell)
+    - [Trojan](#trojan)
+  - [Edit Files Rule Provider](#edit-files-rule-provider)
+    - [Rule Direct/Bypassed Connection](#rule-directbypassed-connection)
+  - [Setting Clash For Android](#setting-clash-for-android)
+      - [Import Main.yaml](#import-mainyaml)
+      - [Import Proxy Provider](#import-proxy-provider)
+      - [Import Rule Provider](#import-rule-provider)
+      - [Start Clash For Android](#start-clash-for-android)
 
 # Clash For Android Config
 
@@ -34,15 +34,15 @@ Clash For Android Config untuk VVIP IPTUNNELS
 * Support Direct/Bypass traffik.
 
 
-## Clash for Android
+# Clash for Android
 
 Antarmuka UI dari clash untuk Android. Kompatibel dengan Shadowsocks ShadowsocksR, Vmess, Trojan, Snell dan protokol lainnya, dan mengimplementasikan proxy kebijakan sesuai dengan konfigurasi aturan yang fleksibel.
 
-### Download Config
+## Download Config
 
 Download zip master dan ekstrak file [**clash_for_android-main.zip**](https://github.com/malikshi/clash_for_android/releases/download/1.0/clash_for_android.zip)
 
-### Edit Files Proxy Provider
+## Edit Files Proxy Provider
 
 
 Mengisi akun tunnel pada setiap files pada folder proxy_provider yang dimana terdapat file umum.yaml, gaming.yaml, sosmed.yaml, streaming.yaml, dan trafficIndo.yaml.
@@ -55,7 +55,7 @@ Fungsi dari masing masing proxy provider
 
 Video : [Edit Proxy Provider](https://youtu.be/dANGCW91E1k)
 
-#### Shadowsocks
+### Shadowsocks
 
 * Shadowsocks Original / tanpa plugin
 ```yaml
@@ -81,7 +81,7 @@ Video : [Edit Proxy Provider](https://youtu.be/dANGCW91E1k)
       host: BUG.COM
 ```
 
-#### Vmess
+### Vmess
 
 * Vmess websocket dengan BUG SNI
 ```yaml
@@ -160,7 +160,7 @@ proxies:
       grpc-service-name: grpcpath
 ```
 
-#### Snell
+### Snell
 
 * Snell Server v3 (support udp).
 ```yaml
@@ -176,7 +176,7 @@ proxies:
     host: BUGSNI.COM
 ```
 
-#### Trojan
+### Trojan
 
 * Trojan-gfw bug SNI
 ```yaml
@@ -242,20 +242,20 @@ proxies:
 ```
 
 
-### Edit Files Rule Provider
+## Edit Files Rule Provider
 
 Config Openclash VVIP IPTUNNELS kalian tidak perlu melakukan update manual dari banyaknya rules pada folder rule_provider. Cukup edit rule_direct.yaml dikarenakan itu customize tiap orang untuk bypass trafficnya. Untuk rule yang lain jika ada tambahan silahkan chat ke grup telegram IPTUNNELS atau open issues pada repository ini.
 
-#### Rule Direct/Bypassed Connection
+### Rule Direct/Bypassed Connection
 
 rule_direct.yaml bersifat offline dimana pengguna dapat mengedit traffic apa saja yang di direct/bypass (tidak menggunakan tunnel). Agar lebih mudah sebagai default sudah disetting bypass traffic Whatsapp.
 
-### Setting Clash For Android
+## Setting Clash For Android
 
 Setelah selesai mengedit config main.yaml dan setiap file pada folder proxy_provider serta rule_direct.yaml pada folder rule_provider maka kita akan setting CFA. Silahkan buka aplikasi clash for android.
 <img src="https://raw.githubusercontent.com/malikshi/clash_for_android/main/assets/cfa.jpg" border="0">
 
-##### Import Main.yaml
+#### Import Main.yaml
 
 Jika ada yang perlu diedit silahkan edit main.yaml kemudian import main.yaml.
 
@@ -263,7 +263,7 @@ Video:  [Import Main.yaml](https://youtu.be/ehopTWNQ_xs)
 
 ![impormain](assets/import%20main%20yaml.gif)
 
-##### Import Proxy Provider
+#### Import Proxy Provider
 
 Jika Semua file pada folder proxy_provider yang terdiri dari umum.yaml, trafficIndo.yaml, streaming.yaml, sosmed.yaml dan gaming.yaml sudah diisi dengan akun maka selanjutnya import file-file tersebut pada Provider Files
 
@@ -271,7 +271,7 @@ Video:  [Import Proxy Provider](https://youtu.be/pUdBvfzAjWo)
 
 ![importproxy](assets/import%20proxy%20provider.gif)
 
-##### Import Rule Provider
+#### Import Rule Provider
 
 traffic direct/bypass sudah disikan ke rule_direct.yaml. ada dua cara untuk import seluruh file pada folder rule_provider, pertama hanya import rule_direct.yaml dan saat klik icon save pada profile akan melakukan fetching seluruh rules jadi membutukan koneksi internet. Kedua import seluruh file secara manual.
 
@@ -279,8 +279,10 @@ Video:  [Import Rule Provider](https://youtu.be/OPdKD2FSj-4)
 
 ![importrule](assets/import%20rule%20provider.gif)
 
-##### Start Clash For Android
+#### Start Clash For Android
 
 Semua langkah - langkah diatas sudah dijalankan maka tinggal start clash for android dengan memilih profile yang tadi dibuat dan tap START untuk memulai.
 
 Video:  [Start Clash For Android](https://youtu.be/WCpX68RbZl8)
+
+![startcfa](assets/start%20cfa.gif)
